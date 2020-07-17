@@ -2,14 +2,14 @@
     <div class="card text-center">
         <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
             {{pokemon.title}}
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" (click)="deletePokemon(pokemon.id)">
                 <i class ="far fa-trash-alt"></i>
             </button>
         </div>
-        <img src ="{{pokemon.image}}" class="card-img-top"> 
+        <img [src] ="pokemon.image" class="card-img-top"> 
         <div class="card-body">
             <p>{{pokemon.description}}</p>
-            <a href="" class = "btn btn-info btn-block">
+            <a [routerLink]= "['/pokemons/edit', pokemon.id]" class = "btn btn-info btn-block" >
                 Editar Pokemon
             </a>
 

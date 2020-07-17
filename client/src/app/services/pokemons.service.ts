@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {Pokemon} from '../models/Pokemon';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class PokemonsService {
     return this.http.get(`${this.API_URI}/pokemons`);
   }
 
-  getPokemon(id: string){
-    return this.http.get(`${this.API_URI}/pokemons/${id}`);
+  getPokemon(id: string): Observable <Pokemon>{
+    return this.http.get<Pokemon>(`${this.API_URI}/pokemons/${id}`);
   }
 
   savePokemon(pokemon : Pokemon){
@@ -28,7 +29,7 @@ export class PokemonsService {
     return this.http.delete(`${this.API_URI}/pokemons/${id}`);
   }
 
-  updatePokemon(id: string ,updatePokemon: Pokemon) {
+  updatePokemon(id: string | number ,updatePokemon: Pokemon) {
     return this.http.put(`${this.API_URI}/pokemons/${id}`,updatePokemon);
   }
 }

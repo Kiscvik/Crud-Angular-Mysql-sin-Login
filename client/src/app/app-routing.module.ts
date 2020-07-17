@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PokeListComponent } from './components/poke-list/poke-list.component';
-
+import { PokeFormComponent} from './components/poke-form/poke-form.component';
+import { PokemonsService } from './services/pokemons.service';
 
 const routes: Routes = [
   {
@@ -14,6 +15,15 @@ const routes: Routes = [
   {
     path: 'pokemons',
     component: PokeListComponent
+  }, 
+  {
+    path:'pokemons/add',
+    component: PokeFormComponent
+
+  },
+  {
+    path:'pokemons/edit/:id',
+    component:PokeFormComponent
   }
 ];
 
